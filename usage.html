@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/usage.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo" style="font-weight: 800; color: var(--primary-color);">WASLA</a>
+                <div class="flex items-center" style="gap: 15px;">
+                    <span class="user-name" style="font-weight: 600;">...</span>
+                    <a href="dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 30px;">
+        <h2>Usage Statistics</h2>
+
+        <div class="filters-bar">
+            <div class="toggle-group">
+                <button class="toggle-btn active" data-mode="daily">Daily</button>
+                <button class="toggle-btn" data-mode="weekly">Weekly</button>
+                <button class="toggle-btn" data-mode="monthly">Monthly</button>
+            </div>
+            <div>
+                <button id="btn-download-pdf" class="btn btn-primary"
+                    style="padding: 6px 12px; font-size: 0.9em;">Download PDF</button>
+            </div>
+        </div>
+
+        <div class="card chart-container">
+            <canvas id="usageChart"></canvas>
+        </div>
+
+        <div class="card">
+            <h3>Detailed Breakdown</h3>
+            <table class="usage-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Service / App</th>
+                        <th>Data Consumed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Today, 10:00 AM</td>
+                        <td>Youtube</td>
+                        <td>450 MB</td>
+                    </tr>
+                    <tr>
+                        <td>Today, 08:30 AM</td>
+                        <td>Instagram</td>
+                        <td>120 MB</td>
+                    </tr>
+                    <tr>
+                        <td>Yesterday</td>
+                        <td>Netflix</td>
+                        <td>2.1 GB</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/usage.js"></script>
+</body>
+
+</html>

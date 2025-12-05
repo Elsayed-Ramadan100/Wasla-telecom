@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/support.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo" style="font-weight: 800; color: var(--primary-color);">WASLA</a>
+                <div class="flex items-center" style="gap: 15px;">
+                    <a href="index.html" class="btn btn-secondary">Home</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 30px;">
+
+        <div class="support-grid">
+            <!-- Left Column: FAQ & Form -->
+            <div>
+                <h2 style="margin-bottom: 20px;">Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-question">How do I claim my 10GB gift? <span>+</span></div>
+                    <div class="faq-answer">The gift is automatically added to your account immediately after
+                        registration.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What payment methods are supported? <span>+</span></div>
+                    <div class="faq-answer">Currently, we support Vodafone Cash for all transactions.</div>
+                </div>
+
+                <h2 style="margin: 40px 0 20px;">Open a Ticket</h2>
+                <div class="card">
+                    <form id="ticket-form">
+                        <div class="form-group">
+                            <label class="form-label">Subject</label>
+                            <input type="text" id="ticket-subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button class="btn btn-primary">Submit Ticket</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Column: Live Chat -->
+            <div>
+                <h2 style="margin-bottom: 20px;">Live Chat</h2>
+                <div class="chat-window">
+                    <div class="chat-header">Wasla Assistant</div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message bot">Hello! How can I help you today?</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chat-input" class="form-control" placeholder="Type a message...">
+                        <button id="chat-send" class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/support.js"></script>
+</body>
+
+</html>

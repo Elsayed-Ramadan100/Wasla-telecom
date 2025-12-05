@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="container" style="margin-top:20px;">
+        <h1>Admin Panel <span style="font-size:0.5em; color:gray;">(Demo)</span></h1>
+        <a href="index.html">Back to Site</a>
+
+        <div class="admin-stats" style="margin-top:20px;">
+            <div class="stat-box">
+                <h3>Total Users</h3>
+                <p id="stat-users" style="font-size:2rem;">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Revenue</h3>
+                <p id="stat-rev" style="font-size:2rem;">0</p>
+            </div>
+        </div>
+
+        <h3>User Management</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Data Balance</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="users-table-body"></tbody>
+        </table>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

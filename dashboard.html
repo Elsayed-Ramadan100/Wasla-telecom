@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo" style="font-weight: 800; color: var(--primary-color);">WASLA</a>
+
+                <div class="flex items-center" style="gap: 15px;">
+                    <span class="user-name" style="font-weight: 600;">...</span>
+                    <a href="#" class="btn btn-secondary" onclick="WaslaUtils.logoutUser()">Logout</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="card sidebar-menu" style="padding: 10px;">
+                    <a href="dashboard.html" class="active">Overview</a>
+                    <a href="usage.html">My Usage</a>
+                    <a href="offers.html">Offers & Plans</a>
+                    <a href="payment.html">Recharge & Pay</a>
+                    <a href="rewards.html">Rewards</a>
+                    <a href="profile.html">Settings</a>
+                    <a href="support.html">Support</a>
+                </div>
+            </aside>
+
+            <!-- Main -->
+            <main>
+                <h2 style="margin-bottom: 20px;">Hello, <span class="user-name">User</span>!</h2>
+
+                <div class="overview-cards">
+                    <!-- Balance Card -->
+                    <div class="card">
+                        <h3>Current Balance</h3>
+                        <div id="main-balance"
+                            style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 10px 0;">0.00
+                            EGP</div>
+                        <a href="payment.html" class="btn btn-primary" style="width: 100%;">Recharge Now</a>
+                    </div>
+
+                    <!-- Usage Card -->
+                    <div class="card usage-card">
+                        <div class="flex justify-between">
+                            <h3>Internet</h3>
+                            <span class="badge"
+                                style="background:var(--secondary-color); color:var(--primary-color); padding: 2px 8px; border-radius:10px;">Active</span>
+                        </div>
+
+                        <div class="progress-wrapper">
+                            <div class="flex justify-between" style="font-size: 0.9em; margin-bottom: 5px;">
+                                <span>Used</span>
+                                <span id="data-remaining">...</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="flex justify-between"
+                                style="font-size: 0.8em; margin-top: 5px; color: var(--text-light);">
+                                <span>0 GB</span>
+                                <span id="data-total">...</span>
+                            </div>
+                        </div>
+                        <a href="usage.html" style="font-size: 0.9em;">View Details &gt;</a>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <h3 style="margin-bottom: 15px;">Quick Actions</h3>
+                <div class="quick-actions">
+                    <a href="usage.html" class="action-btn">
+                        <div class="action-icon">📊</div>
+                        <span>Usage</span>
+                    </a>
+                    <a href="offers.html" class="action-btn">
+                        <div class="action-icon">✨</div>
+                        <span>Offers</span>
+                    </a>
+                    <a href="payment.html" class="action-btn">
+                        <div class="action-icon">💳</div>
+                        <span>Pay Bill</span>
+                    </a>
+                    <a href="#" id="btn-invite" class="action-btn">
+                        <div class="action-icon">👥</div>
+                        <span>Invite</span>
+                    </a>
+                </div>
+
+                <!-- Notifications -->
+                <div class="card">
+                    <div class="flex justify-between items-center" style="margin-bottom: 15px;">
+                        <h3>Notifications</h3>
+                        <a href="#" style="font-size: 0.9em;">Mark read</a>
+                    </div>
+                    <div class="notifications-area">
+                        <div class="notif-item unread">
+                            <div
+                                style="background:var(--primary-color); color:white; width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                                🎁</div>
+                            <div>
+                                <p style="font-weight: 600;">Welcome Gift Activated!</p>
+                                <p style="font-size: 0.9em; color: var(--text-light);">You received 10GB free data valid
+                                    for 30 days.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

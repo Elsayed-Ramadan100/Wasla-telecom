@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/offers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo" style="font-weight: 800; color: var(--primary-color);">WASLA</a>
+                <div class="flex items-center" style="gap: 15px;">
+                    <a href="dashboard.html" class="btn btn-secondary">Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 30px;">
+        <h2 style="margin-bottom: 20px;">Special Offers for You</h2>
+
+        <div class="filters-container">
+            <button class="filter-btn active" data-filter="all">All Offers</button>
+            <button class="filter-btn" data-filter="bundle">Bundles</button>
+            <button class="filter-btn" data-filter="addon">Add-ons</button>
+            <button class="filter-btn" data-filter="roaming">Roaming</button>
+        </div>
+
+        <div id="offers-grid" class="offers-grid">
+            <!-- Injected via JS -->
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/offers.js"></script>
+</body>
+
+</html>

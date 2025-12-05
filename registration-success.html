@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/registration-success.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card success-card">
+            <div class="success-icon">🎉</div>
+            <h1>Welcome to Wasla!</h1>
+            <p>Your account has been successfully created.</p>
+
+            <div class="gift-box">
+                <h3 style="color: var(--primary-color);">🎁 10GB FREE GIFT</h3>
+                <p>Your welcome gift has been added to your balance.</p>
+                <small>Valid for 30 days.</small>
+            </div>
+
+            <p style="margin-bottom: 30px;">You will be redirected to login in <span id="countdown">5</span> seconds...
+            </p>
+
+            <a href="login.html" class="btn btn-primary">Go to Login Now</a>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let seconds = 5;
+            const el = document.getElementById('countdown');
+            const interval = setInterval(() => {
+                seconds--;
+                el.textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    window.location.href = 'login.html';
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

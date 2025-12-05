@@ -1,0 +1,38 @@
+{
+    "users": [],
+    "offers": [
+        {
+            "id": "offer_1",
+            "name": "Super Flex 100",
+            "price": 100,
+            "dataGB": 20,
+            "minutes": 1000,
+            "validityDays": 30,
+            "type": "bundle",
+            "description": "20GB + 1000 Minutes for 30 days"
+        },
+        {
+            "id": "offer_2",
+            "name": "Data Booster 50",
+            "price": 50,
+            "dataGB": 8,
+            "minutes": 0,
+            "validityDays": 14,
+            "type": "addon",
+            "description": "8GB Data booster"
+        },
+        {
+            "id": "offer_3",
+            "name": "Unlimited Social",
+            "price": 30,
+            "dataGB": 0,
+            "minutes": 0,
+            "validityDays": 30,
+            "type": "addon",
+            "description": "Unlimited Social Media usage"
+        }
+    ],
+    "billingHistory": [],
+    "supportTickets": [],
+    "rewards": []
+}

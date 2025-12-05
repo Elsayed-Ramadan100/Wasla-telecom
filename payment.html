@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo" style="font-weight: 800; color: var(--primary-color);">WASLA</a>
+                <div class="flex items-center" style="gap: 15px;">
+                    <a href="dashboard.html" class="btn btn-secondary">Dashboard</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="margin-top: 30px; max-width: 800px;">
+
+        <div class="card">
+            <h2 id="payment-title" style="margin-bottom: 20px;">Recharge Balance</h2>
+
+            <!-- Payment Methods (Selection) -->
+            <div class="payment-methods">
+                <div class="method-card active">
+                    <div class="vf-logo">Vodafone Cash</div>
+                    <div>Mobile Wallet</div>
+                </div>
+                <div class="method-card" style="opacity: 0.5; cursor: not-allowed;" title="Not available in demo">
+                    <div style="font-weight: bold; margin-bottom: 10px;">Credit Card</div>
+                    <div>Visa / Mastercard</div>
+                </div>
+            </div>
+
+            <!-- Step 1 -->
+            <form id="pay-step-1">
+                <div class="form-group">
+                    <label class="form-label">Phone Number (Wallet)</label>
+                    <input type="text" id="vf-phone" class="form-control" placeholder="010xxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Amount (EGP)</label>
+                    <input type="number" id="amount" class="form-control" placeholder="e.g. 100">
+                </div>
+                <button id="btn-pay" class="btn btn-primary" style="width: 100%;">Proceed</button>
+            </form>
+
+            <!-- Step 2 -->
+            <div id="pay-step-2" style="display: none; text-align: center;">
+                <h3 style="margin-bottom: 15px;">Confirm Payment</h3>
+                <p>A request has been sent to your wallet.</p>
+                <div class="form-group" style="max-width: 200px; margin: 20px auto;">
+                    <label class="form-label">Enter Wallet PIN (Simulated)</label>
+                    <input type="password" id="vf-pin" class="form-control" placeholder="****" maxlength="6">
+                </div>
+                <button id="btn-confirm-pay" class="btn btn-primary">Confirm & Pay</button>
+            </div>
+
+        </div>
+
+        <!-- History -->
+        <div style="margin-top: 40px;">
+            <h3>Billing History</h3>
+            <div class="card" style="padding: 0;">
+                <table class="payment-history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="billing-table-body">
+                        <!-- JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+
+</html>
