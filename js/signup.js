@@ -90,15 +90,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // OTP Input Auto-focus
+    // OTP Input Logic (Mobile Optimized)
     const otpInputs = document.querySelectorAll('.otp-digit');
+
     otpInputs.forEach((input, index) => {
-        input.addEventListener('keyup', (e) => {
-            if (e.key >= 0 && e.key <= 9) {
-                if (index < otpInputs.length - 1) otpInputs[index + 1].focus();
-            } else if (e.key === 'Backspace') {
-                if (index > 0) otpInputs[index - 1].focus();
+        // 1. Handle Typing (Input event is best for mobile/virtual keyboards)
+        input.addEventListener('input', (e) => {
+            const val = input.value;
+
+            // Allow only numbers
+            if (!/^\d*$/.test(val)) {
+                input.value = val.replace(/\D/g, '');
+                return;
             }
+
+            // Auto-advance if digit entered
+            if (input.value.length === 1) {
+                if (index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            } else if (input.value.length > 1) {
+                // If the user somehow inputs multiple chars at once without 'paste' event (some autocomplete)
+                // We truncate to the first char
+                input.value = input.value[0];
+                if (index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            }
+        });
+
+        // 2. Handle Navigation (Backspace)
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !input.value) {
+                // If empty and backspace pressed, move to previous
+                if (index > 0) {
+                    otpInputs[index - 1].focus();
+                    // Optional: Prevent default backspace if we want to retain previous char or not? 
+                    // Standard behavior is usually just focus back. 
+                    // Often good to delete the prev char too if we move back? 
+                    // Requirement says: "Moving to the previous box when the user presses Backspace"
+                    // It doesn't explicitly say "delete". But usually changing focus is enough.
+                }
+            }
+        });
+
+        // 3. Handle Paste (Active distribution)
+        input.addEventListener('paste', (e) => {
+            e.preventDefault();
+            const pasteData = (e.clipboardData || window.clipboardData).getData('text');
+            const digits = pasteData.replace(/\D/g, '').split('');
+
+            if (digits.length === 0) return;
+
+            let currentIndex = index;
+            // Distribute digits starting from the focused input
+            digits.forEach(digit => {
+                if (currentIndex < otpInputs.length) {
+                    otpInputs[currentIndex].value = digit;
+                    otpInputs[currentIndex].focus();
+                    currentIndex++;
+                }
+            });
         });
     });
 
