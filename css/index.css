@@ -164,11 +164,44 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .hero {
+        padding: 50px 0;
+    }
+
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 5vw, 3rem);
+        /* improved clamp */
     }
 
     .steps-container {
         flex-direction: column;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .hero .btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        /* Single column features */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
 }

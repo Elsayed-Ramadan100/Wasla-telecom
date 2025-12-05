@@ -1,9 +1,11 @@
 :root {
   /* Colors */
-  --primary-color: #6A0DAD; /* Purple */
+  --primary-color: #6A0DAD;
+  /* Purple */
   --primary-light: #9d46ff;
   --primary-dark: #4b0082;
-  --secondary-color: #f3e5f5; /* Light Purple tint */
+  --secondary-color: #f3e5f5;
+  /* Light Purple tint */
   --text-main: #333333;
   --text-light: #666666;
   --bg-body: #ffffff;
@@ -15,9 +17,9 @@
   --info: #17a2b8;
 
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
-  --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -26,7 +28,7 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --container-padding: 20px;
-  
+
   /* Radius */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -151,7 +153,9 @@ button {
   text-decoration: none;
 }
 
-.btn:focus, a:focus, input:focus {
+.btn:focus,
+a:focus,
+input:focus {
   outline: 2px solid var(--primary-light);
   outline-offset: 2px;
 }
@@ -218,18 +222,160 @@ button {
   gap: 8px;
 }
 
-.toast.success { background-color: var(--success); }
-.toast.error { background-color: var(--error); }
-.toast.info { background-color: var(--info); }
+.toast.success {
+  background-color: var(--success);
+}
+
+.toast.error {
+  background-color: var(--error);
+}
+
+.toast.info {
+  background-color: var(--info);
+}
 
 @keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
+    --container-padding: 20px;
+  }
+
+  body {
+    font-size: 15px;
+    /* Slightly smaller base text */
+  }
+
+  /* Stack flex containers that are main layout elements if needed */
+  /* Note: We handle specific page layouts in their respective CSS files */
+}
+
+@media (max-width: 480px) {
+  :root {
     --container-padding: 16px;
+    --spacing-lg: 16px;
+    /* Tighter spacing on cards */
+  }
+
+  /* Typography Scaling */
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  .btn {
+    width: 100%;
+    /* Full width buttons on mobile */
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  /* Form Elements */
+  .form-control {
+    font-size: 16px;
+    /* Prevent zoom on iOS */
+  }
+
+  /* Global Tables Scroll */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  /* Toast Position */
+  .toast-container {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    width: auto;
+  }
+
+  .card {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Header/Nav Responsive Stacking */
+@media (max-width: 768px) {
+  header nav {
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    height: auto !important;
+    /* Override fixed height */
+    padding: 15px 0;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  header .logo {
+    margin-bottom: 10px;
+  }
+
+  header ul {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 10px !important;
+    display: none;
+    /* Hide menu links on mobile if we want a hamburger, 
+                     but without JS we can't toggle. 
+                     Prompt says "collapse or stack". Stacking is safer. */
+    display: flex;
+    /* Force flex to stack */
+  }
+
+  header .flex.items-center {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+
+  /* Adjust user menu on mobile */
+  #user-menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Nav Links stacking specific */
+  nav>ul {
+    order: 3;
+    /* Move links to bottom if needed, or keep as is */
+    background-color: var(--bg-card);
+    padding: 10px;
+    border-radius: var(--radius-md);
+    margin-top: 10px;
   }
 }

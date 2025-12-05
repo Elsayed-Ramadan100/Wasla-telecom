@@ -30,3 +30,10 @@
 .data-table th {
     background: var(--secondary-color);
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+}

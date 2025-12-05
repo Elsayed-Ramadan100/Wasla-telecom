@@ -18,3 +18,12 @@
     margin: 20px 0;
     border: 2px dashed var(--primary-color);
 }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .success-card {
+        margin: 30px auto;
+        padding: 20px 15px;
+        /* Adjust padding if needed */
+    }
+}

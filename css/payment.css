@@ -53,9 +53,23 @@
     border-collapse: collapse;
 }
 
+
+
 .payment-history-table td,
 .payment-history-table th {
     padding: 12px;
     border-bottom: 1px solid var(--border-color);
     text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .payment-methods {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .method-card {
+        padding: 15px;
+    }
 }

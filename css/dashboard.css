@@ -115,21 +115,74 @@
 @media (max-width: 900px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .sidebar {
         flex-direction: row;
         overflow-x: auto;
         padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        /* Smooth scroll on iOS */
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
+    }
+
+    .sidebar-menu {
+        display: flex;
+        gap: 10px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        width: 100%;
     }
 
     .sidebar-menu a {
         white-space: nowrap;
+        flex-shrink: 0;
+        padding: 10px 15px;
+        font-size: 0.9em;
     }
 }
 
 @media (max-width: 600px) {
     .quick-actions {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .overview-cards {
+        grid-template-columns: 1fr;
+        /* Single column */
+    }
+}
+
+@media (max-width: 480px) {
+    .quick-actions {
+        grid-template-columns: 1fr;
+        /* Stack actions on very small screens */
+    }
+
+    .action-btn {
+        flex-direction: row;
+        /* Horizontal layout for actions on mobile */
+        justify-content: flex-start;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .action-icon {
+        margin-bottom: 0;
+        font-size: 1.5rem;
+    }
+
+    .notif-item {
+        flex-direction: column;
+        /* Stack notification content if needed */
+        align-items: flex-start;
     }
 }

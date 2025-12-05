@@ -88,3 +88,15 @@
 .faq-item.active .faq-answer {
     display: block;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .support-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chat-window {
+        height: 400px;
+        /* Reduce height on mobile */
+    }
+}

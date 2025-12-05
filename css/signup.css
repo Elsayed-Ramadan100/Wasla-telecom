@@ -98,3 +98,37 @@
         transform: translateY(0);
     }
 }
+
+/* Responsive */
+@media (max-width: 480px) {
+    .signup-container {
+        margin: 20px auto;
+        padding: 0 10px;
+    }
+
+    .wizard-steps {
+        margin-bottom: 20px;
+    }
+
+    .otp-input-group {
+        gap: 5px;
+    }
+
+    .otp-digit {
+        width: 35px;
+        /* Smaller inputs */
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .btn-group {
+        flex-direction: column-reverse;
+        /* Stack buttons, Back below Next */
+        gap: 15px;
+    }
+
+    .btn-group .btn {
+        width: 100%;
+        margin-left: 0;
+    }
+}
