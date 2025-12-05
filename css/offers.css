@@ -1,0 +1,77 @@
+/* Offers Styles */
+.filters-container {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-color);
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.offer-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-ribbon {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background-color: var(--warning);
+    color: #333;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    font-size: 0.8rem;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+}
+
+.offer-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.offer-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.offer-period {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.offer-features {
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.offer-features li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

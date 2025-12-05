@@ -1,0 +1,20 @@
+/* Registration Success custom styles */
+.success-card {
+    text-align: center;
+    max-width: 500px;
+    margin: 80px auto;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: var(--success);
+    margin-bottom: 20px;
+}
+
+.gift-box {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin: 20px 0;
+    border: 2px dashed var(--primary-color);
+}
