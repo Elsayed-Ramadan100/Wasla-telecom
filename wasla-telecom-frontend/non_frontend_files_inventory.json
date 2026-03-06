@@ -1,0 +1,149 @@
+[
+    {
+        "path": "README.md",
+        "type": "Documentation",
+        "owner": "Shared / Cross-team",
+        "description": "Project overview, run instructions, structure, and developer notes.",
+        "system_usage": "Entry point for any new developer or user to understand how to run the project."
+    },
+    {
+        "path": "api_spec_openapi.json",
+        "type": "Specification",
+        "owner": "Backend Developer",
+        "description": "Standard OpenAPI 3.0 specification defining the API endpoints derived from frontend requirements.",
+        "system_usage": "Blueprint for implementing the actual Backend API and validating requests."
+    },
+    {
+        "path": "api_summary.md",
+        "type": "Documentation",
+        "owner": "Frontend Support",
+        "description": "Textual summary of API endpoints specifically used by the JavaScript frontend files.",
+        "system_usage": "Quick reference for frontend developers to know which endpoints to call."
+    },
+    {
+        "path": "data_fields_extracted.md",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Detailed mapping of all data fields extracted from LocalStorage keys (users, offers, billing).",
+        "system_usage": "Critical reference for defining Database Schema and Validation logic."
+    },
+    {
+        "path": "dfd_level1.json",
+        "type": "Diagram Source",
+        "owner": "System Analyst",
+        "description": "JSON representation of the Data Flow Diagram (Level 1) processes and flows.",
+        "system_usage": "Source file for generating visual DFDs in external tools."
+    },
+    {
+        "path": "dfd_level1.txt",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Textual description of the Data Flow Diagram (Level 1) processes, inputs, outputs, and stores.",
+        "system_usage": "Human-readable explanation of system data flows."
+    },
+    {
+        "path": "erd.md",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Entity Relationship Diagram description, listing entities like User, Offer, BillingHistory and their relationships.",
+        "system_usage": "Guide for understanding the logical data model."
+    },
+    {
+        "path": "erd.sql",
+        "type": "Database Schema",
+        "owner": "Backend Developer",
+        "description": "SQL Data Definition Language (DDL) script to create tables for Users, Offers, and Transactions.",
+        "system_usage": "Directly used to initialize a PostgreSQL/MySQL database."
+    },
+    {
+        "path": "erd_mongo.json",
+        "type": "Database Schema",
+        "owner": "Backend Developer",
+        "description": "MongoDB JSON Schema for collection validation (users, offers).",
+        "system_usage": "Used to configure validation rules in a NoSQL database."
+    },
+    {
+        "path": "migration_instructions.md",
+        "type": "Documentation",
+        "owner": "DevOps / Infrastructure",
+        "description": "Instructions for extracting data from the live frontend localStorage and importing it into a database.",
+        "system_usage": "Guide for the data migration process during backend transition."
+    },
+    {
+        "path": "mock-data.json",
+        "type": "Data Asset",
+        "owner": "Data Analyst",
+        "description": "JSON file containing sample data for users, offers, and history.",
+        "system_usage": "Source of truth for seeding the database or resetting the frontend simulation."
+    },
+    {
+        "path": "project_data_report.txt",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Comprehensive report on data sent/collected by the client, including a security assessment.",
+        "system_usage": "High-level overview of data handling and privacy risks."
+    },
+    {
+        "path": "project_files_scanned.json",
+        "type": "Analysis Report",
+        "owner": "DevOps / Infrastructure",
+        "description": "Automated scan result mapping file paths, types, function definitions, and security findings.",
+        "system_usage": "Inventory reference for code audit and understanding file dependencies."
+    },
+    {
+        "path": "security_audit.md",
+        "type": "Analysis Report",
+        "owner": "DevOps / Infrastructure",
+        "description": "Audit report listing critical, medium, and low security issues (e.g., plain text passwords).",
+        "system_usage": "Action list for security hardening before production deployment."
+    },
+    {
+        "path": "sequences.txt",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Textual representation of Sequence Diagrams for key flows like Registration, Login, and Payment.",
+        "system_usage": "Specifies the exact order of operations for implementing backend interaction logic."
+    },
+    {
+        "path": "system_analysis_report.txt",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Full system analysis document covering Actors, Use Cases, DFDs, ERDs, and Business Rules.",
+        "system_usage": "The Master Specification document for the entire system."
+    },
+    {
+        "path": "system_modeling_report.txt",
+        "type": "Analysis Report",
+        "owner": "System Analyst",
+        "description": "Executive summary and deliverables checklist for the system modeling phase.",
+        "system_usage": "Quick overview for stakeholders to understand the modeling outputs."
+    },
+    {
+        "path": "use_cases.csv",
+        "type": "Requirement Data",
+        "owner": "System Analyst",
+        "description": "CSV export of all system Use Cases (ID, Actor, Trigger, Flow, etc.).",
+        "system_usage": "Structured data for importing into project management tools or Excel."
+    },
+    {
+        "path": "use_cases_detailed.md",
+        "type": "Requirement Data",
+        "owner": "System Analyst",
+        "description": "Deep-dive textual specification of complex use cases (User Registration, Login, Payment).",
+        "system_usage": "Detailed guide for developers implementing complex business logic."
+    },
+    {
+        "path": "use_cases_table.csv",
+        "type": "Requirement Data",
+        "owner": "System Analyst",
+        "description": "CSV version of the Use Case summary table.",
+        "system_usage": "Alternative format for reviewing use case summaries."
+    },
+    {
+        "path": "use_cases_table.md",
+        "type": "Requirement Data",
+        "owner": "System Analyst",
+        "description": "Markdown table summarizing all use cases for quick readability.",
+        "system_usage": "Quick reference for understanding system scope and features."
+    }
+]

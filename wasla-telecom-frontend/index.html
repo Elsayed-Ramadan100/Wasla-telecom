@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasla Telecom - Connect Faster</title>
+  <meta name="description"
+    content="Join Wasla Telecom and get 10GB free immediately. The best telecom provider in the region.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css?v=2">
+  <link rel="stylesheet" href="css/shared-layout.css">
+  <link rel="stylesheet" href="css/index.css?v=2">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav class="flex justify-between items-center" style="height: 80px;">
+        <a href="index.html" class="logo" style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+          WASLA<span style="color: var(--text-main);">TELECOM</span>
+        </a>
+
+        <ul class="flex items-center desktop-nav-links secondary-nav" style="gap: 20px;">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="support.html">Contact</a></li>
+        </ul>
+
+        <div class="flex items-center header-controls" style="gap: 15px;">
+          <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+
+          <div id="auth-buttons" class="flex" style="gap: 10px;">
+            <a href="login.html" class="btn btn-secondary">Login</a>
+            <a href="signup.html" class="btn btn-primary">Register</a>
+          </div>
+
+          <div id="user-menu" class="flex items-center" style="gap: 15px; display: none;">
+            <span class="user-name" id="display-name" style="font-weight: 600;">User</span>
+            <a href="dashboard.html" class="btn btn-primary">Dashboard</a>
+            <a href="#" id="btn-logout" class="btn btn-secondary logout-btn"
+              style="padding: 5px 10px; font-size: 0.9em;">Logout</a>
+          </div>
+
+          <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;" title="Menu">☰</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero-section" style="position: relative;">
+    <!-- CSS Starfield Background -->
+    <div class="starfield parallax-layer" data-speed="0.01"></div>
+    <div class="starfield starfield-2 parallax-layer" data-speed="0.01"></div>
+    <div class="starfield starfield-3 parallax-layer" data-speed="0.01"></div>
+
+    <div class="container hero-content parallax-wrapper">
+      <!-- Left: Glassmorphism HUD -->
+      <div class="hero-text-card parallax-layer" data-speed="0.04">
+        <h1 class="hero-title">Data that Moves with You</h1>
+        <p class="hero-subtitle">Join Wasla Telecom today and get <strong>10 Gigabytes for FREE</strong> as a welcome
+          gift. Experience the fastest 5G network in the universe.</p>
+
+        <div class="hero-buttons" style="justify-content: flex-start;">
+          <a href="signup.html" class="btn btn-primary pulse-btn">Get Your Free 10GB</a>
+          <a href="offers.html" class="btn btn-outline hero-outline-btn">View Plans</a>
+        </div>
+      </div>
+
+      <!-- Right: Floating 3D Meteor -->
+      <div class="meteor-container parallax-layer" data-speed="-0.10">
+        <img src="images/5g-meteor.png" id="floating-meteor" alt="5G Meteor"
+          style="width: 500px; max-width: 100%; display: block;">
+        <div class="meteor-shadow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Showcase -->
+  <section class="features-showcase">
+    <div class="container">
+
+      <!-- Feature 1: Gaming pass -->
+      <div class="showcase-row theme-gaming scroll-reveal">
+        <div class="feature-image-box">
+          <img src="images/gaming-pass.png" alt="5G Cloud Gaming Pass">
+        </div>
+        <div class="feature-text-box">
+          <h3>5G Cloud Gaming Pass</h3>
+          <p>Unleash the power of Wasla's ultra-low latency 5G network. Play AAA gaming titles on the go without a
+            console, streamed flawlessly straight to your mobile device with zero lag.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2: Smart Routing -->
+      <div class="showcase-row theme-routing scroll-reveal">
+        <div class="feature-image-box">
+          <img src="images/smart-routing.png" alt="AI-Powered Smart Routing">
+        </div>
+        <div class="feature-text-box">
+          <h3>AI-Powered Smart Routing</h3>
+          <p>Never experience buffering again. Our proprietary artificial intelligence constantly analyzes network
+            traffic to dynamically route your data through the fastest, least congested lanes in real-time.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Rewards -->
+      <div class="showcase-row theme-rewards scroll-reveal">
+        <div class="feature-image-box">
+          <img src="images/rewards-metaverse.png" alt="The Wasla Rewards Metaverse">
+        </div>
+        <div class="feature-text-box">
+          <h3>The Wasla Rewards Metaverse</h3>
+          <p>Earn points for every gigabyte you use and step into the Wasla portal to redeem them for exclusive digital
+            assets, premium device upgrades, and VIP real-world experiences.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Security -->
+      <div class="showcase-row theme-security scroll-reveal">
+        <div class="feature-image-box">
+          <img src="images/quantum-shield.png" alt="Quantum Shield Security">
+        </div>
+        <div class="feature-text-box">
+          <h3>Quantum Shield Security</h3>
+          <p>Your digital life, completely protected. Wasla's enterprise-grade, edge-to-core encryption automatically
+            secures your personal data and identity, ensuring absolute privacy on any connection.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Wasla?</h2>
+        <p>We are redefining what a telecom provider should be.</p>
+      </div>
+
+      <div class="grid features-grid">
+        <div class="card feature-card scroll-reveal">
+          <div class="feature-icon">🚀</div>
+          <h3>Blazing Fast Speed</h3>
+          <p>Experience 5G speeds that let you stream, game, and work without interruption.</p>
+        </div>
+        <div class="card feature-card scroll-reveal" style="transition-delay: 0.2s;">
+          <div class="feature-icon">🛡️</div>
+          <h3>Secure & Private</h3>
+          <p>Your data privacy is our top priority. We use end-to-end encryption for all services.</p>
+        </div>
+        <div class="card feature-card scroll-reveal" style="transition-delay: 0.4s;">
+          <div class="feature-icon">🎁</div>
+          <h3>Rewards Program</h3>
+          <p>Earn points with every recharge and redeem them for exclusive gifts and discounts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get Gift -->
+  <section class="steps">
+    <div class="container">
+      <div class="section-title">
+        <h2>Get Started in 3 Steps</h2>
+        <p>Claiming your 10GB gift is easier than ever.</p>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <h3>Register</h3>
+          <p>Create an account using your basic details and verified phone number.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <h3>Verify</h3>
+          <p>Enter the OTP sent to your phone to confirm your identity securely.</p>
+        </div>
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <h3>Complete & Claim</h3>
+          <p>Log in to your dashboard, complete a quick personalization profile, and instantly unlock your 10GB free
+            data!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Wasla Telecom</h4>
+          <p>Connecting people, empowering futures.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="offers.html">Offers</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="support.html">Help Center</a></li>
+            <li><a href="support.html">Contact Us</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>Email: support@wasla.com</li>
+            <li>Hotline: 19999</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        &copy; 2024 Wasla Telecom. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/utils.js?v=2"></script>
+  <script src="js/header.js"></script>
+  <script src="js/index.js?v=2"></script>
+</body>
+
+</html>

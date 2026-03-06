@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <title>Terms - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+
+                    <div style="display: none; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn" style="display: none;"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container" style="max-width:800px; margin-top:30px;">
+        <h1>Terms of Service</h1>
+        <p>Welcome to Wasla Telecom. By using our services, you agree to...</p>
+        <h3>Privacy Policy</h3>
+        <p>We use localStorage to store your data locally on your device for demonstration purposes.</p>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+</body>
+
+</html>

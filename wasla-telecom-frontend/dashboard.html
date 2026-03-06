@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav"
+        style="background: var(--bg-body); padding: 10px 0; border-bottom: 1px solid var(--border-color);">
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="top-nav-menu">
+                <a href="dashboard.html" class="active" data-tooltip="Overview">🏠</a>
+                <a href="usage.html" data-tooltip="My Usage">📊</a>
+                <a href="offers.html" data-tooltip="Offers & Plans">✨</a>
+                <a href="payment.html" data-tooltip="Recharge & Pay">💳</a>
+                <a href="rewards.html" data-tooltip="Rewards">🎁</a>
+                <a href="profile.html" data-tooltip="Settings">⚙️</a>
+                <a href="support.html" data-tooltip="Support">🎧</a>
+                <a href="#" id="nav-profile-completion" data-tooltip="Get 10GB Gift">🎁</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 30px;">
+        <main>
+            <h2 style="margin-bottom: 20px;">Hello, <span class="user-name">User</span>!</h2>
+
+            <div class="overview-cards">
+                <!-- Balance Card -->
+                <div class="card">
+                    <h3>Current Balance</h3>
+                    <div id="main-balance"
+                        style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin: 10px 0;">
+                        0.00
+                        EGP</div>
+                    <a href="payment.html" class="btn btn-primary" style="width: 100%;">Recharge Now</a>
+                </div>
+
+                <!-- Usage Card -->
+                <div class="card usage-card">
+                    <div class="flex justify-between">
+                        <h3>Internet</h3>
+                        <span class="badge"
+                            style="background:var(--secondary-color); color:var(--primary-color); padding: 2px 8px; border-radius:10px;">Active</span>
+                    </div>
+
+                    <div class="progress-wrapper">
+                        <div class="flex justify-between" style="font-size: 0.9em; margin-bottom: 5px;">
+                            <span>Used</span>
+                            <span id="data-remaining">...</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="flex justify-between"
+                            style="font-size: 0.8em; margin-top: 5px; color: var(--text-light);">
+                            <span>0 GB</span>
+                            <span id="data-total">...</span>
+                        </div>
+                    </div>
+                    <a href="usage.html" style="font-size: 0.9em;">View Details &gt;</a>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <h3 style="margin-bottom: 15px;">Quick Actions</h3>
+            <div class="quick-actions">
+                <a href="usage.html" class="action-btn">
+                    <div class="action-icon">📊</div>
+                    <span>Usage</span>
+                </a>
+                <a href="offers.html" class="action-btn">
+                    <div class="action-icon">✨</div>
+                    <span>Offers</span>
+                </a>
+                <a href="payment.html" class="action-btn">
+                    <div class="action-icon">💳</div>
+                    <span>Pay Bill</span>
+                </a>
+                <a href="#" id="btn-invite" class="action-btn">
+                    <div class="action-icon">👥</div>
+                    <span>Invite</span>
+                </a>
+            </div>
+
+            <!-- Notifications -->
+            <div class="card">
+                <div class="flex justify-between items-center" style="margin-bottom: 15px;">
+                    <h3>Notifications</h3>
+                    <a href="#" style="font-size: 0.9em;">Mark read</a>
+                </div>
+                <div class="notifications-area" id="notification-container">
+                    <!-- Content dynamically populated by dashboard.js -->
+                </div>
+            </div>
+
+
+
+        </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

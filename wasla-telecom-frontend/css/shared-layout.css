@@ -1,0 +1,206 @@
+/* Top Navigation & Header Controls */
+.header-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 8px;
+    /* Tighter gap for uniform buttons */
+}
+
+/* Uniform Header Button Style */
+.header-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0 10px;
+    /* Reset padding to rely on height/flex for center */
+    height: 36px;
+    /* Fixed uniform height */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-btn:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.hamburger-btn {
+    font-size: 1.2rem;
+    padding: 4px 8px;
+    /* Adjusted padding for icon */
+}
+
+.top-nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.top-nav-menu a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.6rem;
+    /* Increased size for icons */
+    padding: 10px 15px;
+    /* Button padding */
+    background-color: var(--bg-card);
+    /* Subtle default background */
+    border: 2px solid transparent;
+    /* Subtle border */
+    border-radius: 12px;
+    /* Button shape */
+    transition: all 0.3s ease;
+    /* Smooth dock transitions */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Tooltip Styles */
+.top-nav-menu a::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-main);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.top-nav-menu a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+/* Dock Hover Container Effect */
+.top-nav-menu:hover a {
+    transform: scale(0.85);
+    /* Shrink non-hovered items slightly */
+    opacity: 0.6;
+    /* Dim non-hovered items slightly */
+}
+
+/* Dock Hover Item Effect */
+.top-nav-menu a:hover {
+    transform: scale(1.15) !important;
+    /* Magnify hovered item */
+    opacity: 1 !important;
+    /* Restore opacity */
+    color: var(--primary-color);
+    background-color: rgba(108, 92, 231, 0.1);
+    border-color: var(--primary-color);
+}
+
+.top-nav-menu a.active {
+    color: var(--primary-color);
+    background-color: rgba(108, 92, 231, 0.1);
+    border-color: var(--primary-color);
+}
+
+/* Gift Icon Animation */
+@keyframes giftPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+    50% { transform: scale(1.15); box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+}
+
+.pulse-anim {
+    animation: giftPulse 1.5s infinite ease-in-out;
+    background-color: rgba(255, 215, 0, 0.1) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Base Nav specific */
+.secondary-nav {
+    background: var(--bg-body);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Responsive specific to Header/Nav */
+@media (max-width: 768px) {
+
+    .user-name-wrapper,
+    .user-icon {
+        display: none !important;
+    }
+
+    /* Force header controls onto a single line */
+    .header-controls {
+        flex-wrap: nowrap !important;
+        align-items: center;
+        overflow-x: auto;
+        /* Custom scrollbar hiding could go here */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .header-controls::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari and Opera */
+    }
+
+    .hamburger-btn {
+        display: inline-flex !important;
+    }
+
+    .logout-btn {
+        font-size: 0.85rem;
+        /* Smaller text on mobile */
+        padding: 0 10px;
+        margin: 0;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Secondary Nav Hide/Show Logic */
+    .secondary-nav {
+        display: none;
+    }
+
+    .secondary-nav.active {
+        display: block;
+    }
+
+    .top-nav-menu {
+        display: flex;
+        overflow-x: auto;
+        padding: 5px 10px;
+        justify-content: flex-start;
+        /* Start from left instead of center */
+        gap: 1rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .top-nav-menu::-webkit-scrollbar {
+        display: none;
+    }
+}

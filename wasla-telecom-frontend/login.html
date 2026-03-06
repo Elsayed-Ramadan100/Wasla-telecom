@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon" style="display: none;">👤</span>
+                        <span class="user-name-wrapper" style="display:none; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn" style="display: none;"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container login-container">
+        <div class="card">
+            <div class="login-header">
+                <h2 style="color: var(--primary-color);">Welcome Back</h2>
+                <p>Login to manage your account</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number or Email</label>
+                    <input type="text" id="phone" class="form-control" placeholder="01xxxxxxxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="******" required>
+                </div>
+
+                <div class="flex justify-between" style="margin-bottom: 20px; font-size: 0.9em;">
+                    <label><input type="checkbox"> Remember me</label>
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <div style="text-align: center;">
+                <p>Don't have an account? <a href="signup.html">Register Now</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

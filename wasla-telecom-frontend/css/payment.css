@@ -1,0 +1,119 @@
+/* Payment Styles */
+.payment-methods {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.method-card {
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: var(--bg-card);
+}
+
+.method-card.active {
+    border-color: #e60000;
+    /* Vodafone Red */
+    background-color: #fff0f0;
+}
+
+.vf-logo {
+    color: #e60000;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+}
+
+.circle.active {
+    background-color: var(--primary-color);
+}
+
+.payment-history-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.payment-history-table thead {
+    background-color: var(--secondary-color);
+}
+
+.payment-history-table th {
+    padding: 16px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--border-color);
+    text-align: left;
+}
+
+.payment-history-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.payment-history-table tbody tr:hover td {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] .payment-history-table tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Status Badges strictly for the payment history */
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-success {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.status-pending {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ff9800;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .payment-methods {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .method-card {
+        padding: 15px;
+    }
+}

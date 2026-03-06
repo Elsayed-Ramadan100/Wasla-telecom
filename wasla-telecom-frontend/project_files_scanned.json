@@ -1,0 +1,219 @@
+{
+    "project_root": "d:/web/web4/wasla-telecom-frontend",
+    "security_scan": {
+        "hardcoded_credentials": [
+            {
+                "file": "js/login.js",
+                "line_match": "password === 'Admin@123'",
+                "severity": "CRITICAL"
+            }
+        ]
+    },
+    "function_map": [
+        {
+            "file": "js/utils.js",
+            "functions": [
+                "initStore",
+                "getStore",
+                "setStore",
+                "loginUser",
+                "registerUser"
+            ],
+            "storage_access": [
+                "wasla_users",
+                "wasla_current_user",
+                "wasla_offers"
+            ]
+        },
+        {
+            "file": "js/admin.js",
+            "functions": [
+                "renderOffersAdmin",
+                "renderUsersAdmin",
+                "toggleBlockUser"
+            ],
+            "storage_access": [
+                "wasla_users",
+                "wasla_offers"
+            ]
+        },
+        {
+            "file": "js/payment.js",
+            "functions": [
+                "processPaymentSuccess",
+                "addBillingRecord"
+            ],
+            "storage_access": [
+                "wasla_billing",
+                "wasla_users",
+                "wasla_pending_payment"
+            ]
+        }
+    ],
+    "files": [
+        {
+            "path": "index.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/index.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/index.js"
+            ]
+        },
+        {
+            "path": "login.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/login.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/login.js"
+            ]
+        },
+        {
+            "path": "signup.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/signup.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/signup.js"
+            ]
+        },
+        {
+            "path": "dashboard.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/dashboard.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/dashboard.js"
+            ]
+        },
+        {
+            "path": "offers.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/offers.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/offers.js"
+            ]
+        },
+        {
+            "path": "payment.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/payment.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/payment.js"
+            ]
+        },
+        {
+            "path": "profile.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/profile.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/profile.js"
+            ]
+        },
+        {
+            "path": "support.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/support.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/support.js"
+            ]
+        },
+        {
+            "path": "usage.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/usage.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/usage.js"
+            ]
+        },
+        {
+            "path": "admin.html",
+            "type": "html",
+            "linked_css": [
+                "css/base.css",
+                "css/admin.css"
+            ],
+            "linked_js": [
+                "js/utils.js",
+                "js/admin.js"
+            ]
+        },
+        {
+            "path": "js/utils.js",
+            "type": "js"
+        },
+        {
+            "path": "js/index.js",
+            "type": "js"
+        },
+        {
+            "path": "js/login.js",
+            "type": "js"
+        },
+        {
+            "path": "js/signup.js",
+            "type": "js"
+        },
+        {
+            "path": "js/dashboard.js",
+            "type": "js"
+        },
+        {
+            "path": "js/offers.js",
+            "type": "js"
+        },
+        {
+            "path": "js/payment.js",
+            "type": "js"
+        },
+        {
+            "path": "js/profile.js",
+            "type": "js"
+        },
+        {
+            "path": "js/support.js",
+            "type": "js"
+        },
+        {
+            "path": "js/admin.js",
+            "type": "js"
+        },
+        {
+            "path": "js/usage.js",
+            "type": "js"
+        }
+    ]
+}

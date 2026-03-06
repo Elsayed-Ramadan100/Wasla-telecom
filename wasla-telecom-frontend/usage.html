@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usage - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/usage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="top-nav-menu">
+                <a href="dashboard.html" data-tooltip="Overview">🏠</a>
+                <a href="usage.html" class="active" data-tooltip="My Usage">📊</a>
+                <a href="offers.html" data-tooltip="Offers & Plans">✨</a>
+                <a href="payment.html" data-tooltip="Recharge & Pay">💳</a>
+                <a href="rewards.html" data-tooltip="Rewards">🎁</a>
+                <a href="profile.html" data-tooltip="Settings">⚙️</a>
+                <a href="support.html" data-tooltip="Support">🎧</a>
+                <a href="#" id="nav-profile-completion" data-tooltip="Get 10GB Gift">🎁</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 30px;">
+        <h2 style="margin-bottom: 20px;">Usage Statistics</h2>
+
+        <!-- Action / Toggle Bar -->
+        <div class="filters-bar" style="margin-bottom: 20px; display: flex; justify-content: flex-end;">
+            <div>
+                <button id="btn-download-pdf" class="btn btn-primary"
+                    style="padding: 6px 12px; font-size: 0.9em;">Download PDF</button>
+            </div>
+        </div>
+
+        <div id="pdf-content-area">
+            <div class="flex" style="gap: 20px; flex-wrap: wrap;">
+                <!-- Main Chart Area -->
+                <div class="card"
+                    style="flex: 1; min-width: 300px; display: flex; flex-direction: column; align-items: center;">
+                    <h3 style="margin-bottom: 15px; align-self: flex-start;">Data Consumption</h3>
+                    <div style="position: relative; width: 250px; height: 250px;">
+                        <canvas id="usageChart"></canvas>
+                        <!-- Center label dynamic injection via JS -->
+                        <div id="chart-center-label"
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                            <span id="center-gb"
+                                style="font-size: 2rem; font-weight: 800; color: var(--primary-color);">0</span><br>
+                            <span style="font-size: 0.8rem; color: var(--text-light);">GB Left</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div
+                    style="flex: 1; min-width: 300px; display: grid; gap: 15px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+
+                    <div class="card" style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">📦</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);" id="stat-total-gb">0
+                            GB</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Total Quota</div>
+                    </div>
+
+                    <div class="card" style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🔥</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);" id="stat-used-gb">0
+                            GB</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Used Data</div>
+                    </div>
+
+                    <div class="card" style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">✨</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary-color);"
+                            id="stat-left-gb">0 GB</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Available Data</div>
+                    </div>
+
+                    <div class="card" style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🟢</div>
+                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-main);"
+                            id="stat-active-plans">1</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Active Plans</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px; background: transparent; box-shadow: none; padding: 0;">
+                <h3 style="margin-bottom: 15px;">Active Packages & Subscriptions</h3>
+                <div id="subscriptions-grid" class="subscriptions-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+                    <div style="text-align: center; padding: 20px; width: 100%; color: var(--text-light);">Loading your
+                        active packages...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cancellation Modal -->
+    <div id="cancel-modal" class="modal-overlay">
+        <div class="modal-box card">
+            <h3 style="margin-bottom: 10px; color: var(--error);">Cancel Package?</h3>
+            <p style="margin-bottom: 25px; color: var(--text-main); font-size: 1rem; line-height: 1.5;">
+                Are you sure you want to cancel <strong id="modal-pkg-name"></strong>?
+                <br>This will permanently deduct <strong id="modal-pkg-gb"
+                    style="color: var(--primary-color);"></strong><strong>GB</strong> from your available data balance.
+            </p>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                <button id="btn-modal-close" class="btn btn-secondary" style="padding: 10px 20px;">No, Go Back</button>
+                <button id="btn-modal-confirm" class="btn btn-primary"
+                    style="padding: 10px 20px; background-color: var(--error); border: none;">Yes, Cancel
+                    Package</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/usage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <title>Rewards - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+    <link rel="stylesheet" href="css/rewards.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="top-nav-menu">
+                <a href="dashboard.html" data-tooltip="Overview">🏠</a>
+                <a href="usage.html" data-tooltip="My Usage">📊</a>
+                <a href="offers.html" data-tooltip="Offers & Plans">✨</a>
+                <a href="payment.html" data-tooltip="Recharge & Pay">💳</a>
+                <a href="rewards.html" class="active" data-tooltip="Rewards">🎁</a>
+                <a href="profile.html" data-tooltip="Settings">⚙️</a>
+                <a href="support.html" data-tooltip="Support">🎧</a>
+                <a href="#" id="nav-profile-completion" data-tooltip="Get 10GB Gift">🎁</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="max-width:800px; margin-top:30px;">
+        <h1 style="margin-bottom: 20px;">My Rewards</h1>
+
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+            <!-- Points Display Card -->
+            <div class="card"
+                style="text-align:center; padding:40px; background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255,193,7,0.1) 100%);">
+                <div style="font-size:4rem; margin-bottom: 10px;">🏆</div>
+                <h2 style="font-size: 3rem; color: var(--primary-color);" id="total-points">0</h2>
+                <p style="font-weight: 600; color: var(--text-main);">Available Points</p>
+                <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-light);">
+                    Earn 1 point for every 1 EGP spent on packages!
+                </div>
+            </div>
+
+            <!-- Redemption Interaction Card -->
+            <div class="card" style="padding: 30px;">
+                <h3 style="margin-bottom: 15px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">
+                    Redeem Points</h3>
+                <p style="font-size: 0.95rem; color: var(--text-light); margin-bottom: 15px;">
+                    Exchange points for Wallet Balance or simulated Vodafone Cash withdrawal. <br>
+                    <strong>Rate: 100 Points = 20 EGP</strong>
+                </p>
+
+                <div class="form-group">
+                    <label for="redeem-amount">Points to Redeem</label>
+                    <input type="number" id="redeem-amount" class="form-control" placeholder="Min. 100 points" min="100"
+                        step="1" style="font-size: 1.2rem; text-align: center;">
+                </div>
+
+                <div style="text-align: center; margin-bottom: 20px; font-weight: bold; color: var(--text-main);">
+                    Value: <span id="redeem-value-egp" style="color: var(--primary-color);">0</span> EGP
+                </div>
+
+                <div class="flex" style="gap: 10px; flex-direction: column;">
+                    <button id="btn-redeem-wallet" class="btn btn-primary" style="width: 100%;">Add to Wallet</button>
+                    <button id="btn-redeem-vfcash" class="btn btn-outline" style="width: 100%;">Withdraw to VF
+                        Cash</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/rewards.js"></script>
+</body>
+
+</html>

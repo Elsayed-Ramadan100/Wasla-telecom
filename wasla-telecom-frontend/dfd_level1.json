@@ -1,0 +1,73 @@
+{
+    "context_diagram": {
+        "entities": [
+            "User",
+            "Admin",
+            "PaymentGateway",
+            "SMSGateway"
+        ],
+        "system": "Wasla Telecom System"
+    },
+    "level1_processes": [
+        {
+            "id": "1.0",
+            "name": "User Management",
+            "inputs": [
+                "Registration Data",
+                "Login Credentials"
+            ],
+            "outputs": [
+                "Session Token",
+                "Auth Status"
+            ],
+            "data_stores": [
+                "wasla_users",
+                "wasla_current_user"
+            ]
+        },
+        {
+            "id": "2.0",
+            "name": "Offers Management",
+            "inputs": [
+                "Filter Criteria",
+                "New Offer Config"
+            ],
+            "outputs": [
+                "Offer List",
+                "Offer Details"
+            ],
+            "data_stores": [
+                "wasla_offers"
+            ]
+        },
+        {
+            "id": "3.0",
+            "name": "Billing & Payments",
+            "inputs": [
+                "Payment Info",
+                "PIN"
+            ],
+            "outputs": [
+                "Transaction Receipt",
+                "Updated Balance"
+            ],
+            "data_stores": [
+                "wasla_billing",
+                "wasla_users"
+            ]
+        },
+        {
+            "id": "4.0",
+            "name": "Usage Monitoring",
+            "inputs": [
+                "Timeframe Selection"
+            ],
+            "outputs": [
+                "Usage Charts"
+            ],
+            "data_stores": [
+                "wasla_users"
+            ]
+        }
+    ]
+}

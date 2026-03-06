@@ -1,0 +1,87 @@
+{
+    "users": {
+        "validator": {
+            "$jsonSchema": {
+                "bsonType": "object",
+                "required": [
+                    "phone",
+                    "password",
+                    "name"
+                ],
+                "properties": {
+                    "phone": {
+                        "bsonType": "string",
+                        "pattern": "^01[0-9]{9}$"
+                    },
+                    "password": {
+                        "bsonType": "string"
+                    },
+                    "name": {
+                        "bsonType": "string"
+                    },
+                    "balance": {
+                        "bsonType": "double"
+                    },
+                    "dataBalanceGB": {
+                        "bsonType": "double"
+                    },
+                    "status": {
+                        "enum": [
+                            "active",
+                            "blocked"
+                        ]
+                    },
+                    "role": {
+                        "enum": [
+                            "user",
+                            "admin"
+                        ]
+                    },
+                    "billingHistory": {
+                        "bsonType": "array",
+                        "items": {
+                            "bsonType": "object",
+                            "properties": {
+                                "amount": {
+                                    "bsonType": "double"
+                                },
+                                "date": {
+                                    "bsonType": "date"
+                                },
+                                "type": {
+                                    "bsonType": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "offers": {
+        "validator": {
+            "$jsonSchema": {
+                "bsonType": "object",
+                "required": [
+                    "id",
+                    "name",
+                    "price"
+                ],
+                "properties": {
+                    "id": {
+                        "bsonType": "string"
+                    },
+                    "name": {
+                        "bsonType": "string"
+                    },
+                    "price": {
+                        "bsonType": "double"
+                    },
+                    "validityDays": {
+                        "bsonType": "int"
+                    }
+                }
+            }
+        }
+    }
+}

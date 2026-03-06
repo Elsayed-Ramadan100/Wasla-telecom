@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/shared-layout.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <a href="login.html" class="btn btn-secondary header-btn login-nav-link"
+                        style="padding: 0 15px;">Login</a>
+
+                    <div style="display: none; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn" style="display: none;"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container signup-container">
+        <div class="card">
+            <h2 style="text-align: center; margin-bottom: 30px; color: var(--primary-color);">Create Account</h2>
+
+            <div class="wizard-steps">
+                <div class="wizard-step" data-step="1">1</div>
+                <div class="wizard-step" data-step="2">2</div>
+            </div>
+
+            <form id="signup-form">
+                <!-- Step 1: Basic Info -->
+                <div id="step-1" class="step-content">
+                    <div class="form-group pb-2">
+                        <h4 style="margin-bottom: 15px; color: var(--primary-color);">Personal Data</h4>
+                        <label class="form-label" for="name">Full Name <span class="text-danger">*</span></label>
+                        <input type="text" id="name" class="form-control" placeholder="e.g. Ahmed Ali" minlength="2"
+                            required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="form-label" for="gender">Gender <span class="text-danger">*</span></label>
+                            <select id="gender" class="form-control" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Prefer not to say">Prefer not to say</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label class="form-label" for="country">Country <span class="text-danger">*</span></label>
+                            <select id="country" class="form-control" required>
+                                <option value="Egypt" selected>Egypt</option>
+                                <option value="Saudi Arabia">Saudi Arabia</option>
+                                <option value="UAE">UAE</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label class="form-label" for="state">State / Governorate <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" id="state" class="form-control" placeholder="e.g. Cairo" required>
+                        </div>
+                        <div class="form-group half">
+                            <label class="form-label" for="city">City <span class="text-danger">*</span></label>
+                            <input type="text" id="city" class="form-control" placeholder="e.g. Nasr City" required>
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 20px 0 15px; color: var(--primary-color);">Contact Data</h4>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number <span class="text-danger">*</span></label>
+                        <input type="tel" id="phone" class="form-control" placeholder="01xxxxxxxxx"
+                            pattern="^01[0-2,5]{1}[0-9]{8}$" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address <span class="text-danger">*</span></label>
+                        <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password <span class="text-danger">*</span></label>
+                        <input type="password" id="password" class="form-control" placeholder="******" required>
+                    </div>
+                </div>
+
+                <!-- Step 2: Verification -->
+                <div id="step-2" class="step-content" style="text-align: center;">
+                    <h3>Verify Phone Number</h3>
+                    <p class="text-secondary" style="margin-bottom: 20px;">We sent a 6-digit code to your number.</p>
+
+                    <div class="otp-input-group">
+                        <input type="text" class="otp-digit" maxlength="1">
+                        <input type="text" class="otp-digit" maxlength="1">
+                        <input type="text" class="otp-digit" maxlength="1">
+                        <input type="text" class="otp-digit" maxlength="1">
+                        <input type="text" class="otp-digit" maxlength="1">
+                        <input type="text" class="otp-digit" maxlength="1">
+                    </div>
+                    <p><a href="#" onclick="WaslaUtils.showToast('Resent OTP: 123456', 'info')">Resend Code</a></p>
+                </div>
+
+
+
+                <div class="btn-group">
+                    <button id="btn-prev" class="btn btn-secondary">Back</button>
+                    <button id="btn-next" class="btn btn-primary">Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+
+</html>

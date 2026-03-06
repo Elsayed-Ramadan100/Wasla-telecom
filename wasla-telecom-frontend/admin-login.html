@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Wasla Telecom</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-primary), var(--bg-card));
+        }
+
+        .admin-login-card {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .admin-login-card h2 {
+            color: var(--text-primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-login-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .admin-warning {
+            background: rgba(var(--danger-bg-rgb), 0.1);
+            color: var(--danger-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .auth-form {
+            text-align: left;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .input-group .input-wrapper {
+            position: relative;
+        }
+
+        .input-group .input-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.1);
+            outline: none;
+        }
+
+        #adminLoginError {
+            display: none;
+            color: var(--danger-color);
+            background: rgba(var(--danger-bg-rgb), 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-login-wrapper">
+        <div class="admin-login-card">
+            <div class="logo">
+                <i class="fas fa-satellite-dish"
+                    style="font-size: 3rem; color: var(--primary-light); margin-bottom: 1rem;"></i>
+            </div>
+            <h2>Admin Portal</h2>
+            <p>Authorized Personnel Only</p>
+
+            <div class="admin-warning">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure Area. All actions are logged.</span>
+            </div>
+
+            <div id="adminLoginError"></div>
+
+            <form id="adminLoginForm" class="auth-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user-shield"></i>
+                        <input type="text" id="username" placeholder="Enter admin username" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="loginBtn"
+                    style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem;">
+                    Secure Login <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </form>
+
+            <a href="index.html"
+                style="display: block; margin-top: 2rem; color: var(--text-secondary); text-decoration: none;">&larr;
+                Return to main site</a>
+        </div>
+    </div>
+
+    <!-- Application Initialization Local Storage Clear Check for safety -->
+    <script>
+        if (localStorage.getItem('adminToken')) {
+            window.location.href = 'admin.html';
+        }
+    </script>
+    <script src="js/admin-login.js"></script>
+</body>
+
+</html>

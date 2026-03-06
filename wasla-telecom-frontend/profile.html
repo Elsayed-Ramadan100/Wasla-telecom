@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Wasla Telecom</title>
+    <link rel="stylesheet" href="css/base.css?v=2">
+    <link rel="stylesheet" href="css/shared-layout.css?v=2">
+    <link rel="stylesheet" href="css/dashboard.css?v=2">
+    <link rel="stylesheet" href="css/profile.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header style="border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+        <div class="container">
+            <nav class="flex justify-between items-center" style="height: 60px;">
+                <a href="index.html" class="logo"
+                    style="font-size: 24px; font-weight: 800; color: var(--primary-color);">
+                    WASLA<span style="color: var(--text-main);">TELECOM</span>
+                </a>
+
+                <div class="flex items-center header-controls" style="gap: 15px;">
+                    <button id="theme-toggle-btn" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                    <a href="about.html" class="header-btn" style="font-weight: 500; color: var(--text-main);">About</a>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;" class="user-icon">👤</span>
+                        <span class="user-name-wrapper" style="display:flex; align-items:center;">
+                            <span class="user-name user-name-truncate" style="font-weight: 600;">...</span>
+                        </span>
+                    </div>
+                    <a href="#" class="btn btn-secondary header-btn logout-btn"
+                        onclick="WaslaUtils.logoutUser()">Logout</a>
+                    <button id="mobile-menu-btn" class="header-btn hamburger-btn" style="display: none;"
+                        title="Menu">☰</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Secondary Navigation Bar -->
+    <nav class="secondary-nav">
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="top-nav-menu">
+                <a href="dashboard.html" data-tooltip="Overview">🏠</a>
+                <a href="usage.html" data-tooltip="My Usage">📊</a>
+                <a href="offers.html" data-tooltip="Offers & Plans">✨</a>
+                <a href="payment.html" data-tooltip="Recharge & Pay">💳</a>
+                <a href="rewards.html" data-tooltip="Rewards">🎁</a>
+                <a href="profile.html" class="active" data-tooltip="Settings">⚙️</a>
+                <a href="support.html" data-tooltip="Support">🎧</a>
+                <a href="#" id="nav-profile-completion" data-tooltip="Get 10GB Gift">🎁</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 30px; max-width: 800px;">
+
+        <div class="card settings-section">
+            <h3>Personal Information</h3>
+            <form id="profile-form">
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" id="phone" class="form-control" readonly style="background: #eee; flex: 1;">
+                        <button type="button" id="btn-change-phone" class="btn btn-secondary"
+                            style="white-space: nowrap;">Change Number</button>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+        </div>
+
+
+
+        <div class="danger-zone settings-section">
+            <h3>Delete Account</h3>
+            <p style="margin-bottom: 20px;">This will permanently delete your account and remove all data.</p>
+            <button id="btn-delete-account" class="btn" style="background-color: var(--error); color: white;">Delete
+                Account</button>
+        </div>
+
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="delete-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 style="color: var(--error); margin-bottom: 15px;">Delete Account</h3>
+            <p style="margin-bottom: 20px;">We're sorry to see you go. Please tell us why you are leaving:</p>
+
+            <form id="delete-form">
+                <div class="radio-list" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+                    <label><input type="radio" name="deleteReason" value="Not satisfied"> I am not satisfied with the
+                        service</label>
+                    <label><input type="radio" name="deleteReason" value="Switched provider"> I switched to another
+                        telecom provider</label>
+                    <label><input type="radio" name="deleteReason" value="Created by mistake"> I created my account by
+                        mistake</label>
+                    <label><input type="radio" name="deleteReason" value="Privacy concerns"> Privacy concerns</label>
+                    <label><input type="radio" name="deleteReason" value="Other"> Other</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Please describe the reason <span style="color: red;">*</span></label>
+                    <textarea id="delete-reason-text" class="form-control" rows="3" required
+                        placeholder="Tell us more..."></textarea>
+                </div>
+
+                <div class="modal-actions"
+                    style="margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" id="btn-cancel-delete" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn" style="background-color: var(--error); color: white;">Confirm
+                        Deletion</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Phone Change Modal -->
+    <div id="phone-modal" class="modal-overlay hidden">
+        <div class="modal-content card" style="padding: 30px;">
+            <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Change Phone Number</h3>
+
+            <!-- Step 1: New Number Input -->
+            <div id="phone-step-1" class="phone-step fade-in">
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Please enter your new phone number to begin
+                    the verification process.</p>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label class="form-label" style="display:block; margin-bottom: 0.5rem;">New Phone Number</label>
+                    <input type="tel" id="new-phone-input" class="form-control" placeholder="01xxxxxxxxx">
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 15px;">
+                    <button type="button" class="btn btn-secondary btn-close-phone">Cancel</button>
+                    <button type="button" id="btn-phone-next-1" class="btn btn-primary">Next</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Verify Old Number -->
+            <div id="phone-step-2" class="phone-step hidden fade-in">
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Security Check: Enter OTP sent to your
+                    <strong>current</strong> number (<span id="lbl-old-phone"
+                        style="font-weight: 600; color: var(--text-main);"></span>).
+                </p>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label class="form-label" style="display:block; margin-bottom: 0.5rem;">OTP Code (Old
+                        Number)</label>
+                    <input type="text" id="otp-old" class="form-control" placeholder="6-digit code">
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 15px;">
+                    <button type="button" class="btn btn-secondary btn-close-phone">Cancel</button>
+                    <button type="button" id="btn-phone-verify-old" class="btn btn-primary">Verify & Proceed</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Verify New Number -->
+            <div id="phone-step-3" class="phone-step hidden fade-in">
+                <p style="margin-bottom: 1.5rem; color: var(--text-light);">Final Step: Enter OTP sent to your
+                    <strong>new</strong> number (<span id="lbl-new-phone"
+                        style="font-weight: 600; color: var(--text-main);"></span>).
+                </p>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label class="form-label" style="display:block; margin-bottom: 0.5rem;">OTP Code (New
+                        Number)</label>
+                    <input type="text" id="otp-new" class="form-control" placeholder="6-digit code">
+                </div>
+                <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 15px;">
+                    <button type="button" class="btn btn-secondary btn-close-phone">Cancel</button>
+                    <button type="button" id="btn-phone-verify-new" class="btn btn-primary">Verify & Update</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/utils.js?v=2"></script>
+    <script src="js/header.js?v=2"></script>
+    <script src="js/profile.js?v=2"></script>
+</body>
+
+</html>
