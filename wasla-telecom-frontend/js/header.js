@@ -45,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Smart Auth Handling ---
+    if (window.location.pathname.includes('admin')) return;
+
     const userIcon = document.querySelector('.user-icon');
     const userNameWrapper = document.querySelector('.user-name-wrapper');
     const logoutBtn = document.querySelector('.logout-btn');

@@ -113,3 +113,25 @@
 
 .gap-10 { gap: 10px; }
 .justify-end { justify-content: flex-end; }
+
+/* Unified Danger Outline Button */
+.btn-outline-danger {
+    color: #dc3545; 
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover:not(:disabled) {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.6);
+}
+
+.btn-outline-danger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: transparent;
+    color: #dc3545;
+    box-shadow: none;
+}

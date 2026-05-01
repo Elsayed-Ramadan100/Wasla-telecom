@@ -214,6 +214,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (s.canDeleteUsers) perms.push('Wipe');
             if (s.canManageOffers) perms.push('Offers');
 
+            // Prevent removing the owner by adding the disabled attribute
+            const disableRemove = s.role === 'owner' ? 'disabled' : '';
+
             tr.innerHTML = `
                 <td><strong>${s.username}</strong></td>
                 <td><span style="background:#eee; padding:2px 8px; border-radius:12px; font-size:0.8em;">${s.role}</span></td>
@@ -221,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>
                     <div class="flex gap-10">
                         <button class="btn btn-secondary btn-sm" onclick="editStaff('${s.id}')">Edit</button>
-                        <button class="btn btn-sm" style="background:var(--danger-color); color:white; border:none;" onclick="deleteStaff('${s.id}')">Remove</button>
+                        <button class="btn btn-sm btn-outline-danger" onclick="deleteStaff('${s.id}')" ${disableRemove}>Remove</button>
                     </div>
                 </td>
             `;
@@ -398,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
             let buttonsHtml = `<button class="btn btn-secondary btn-sm" onclick="viewUser('${u.id}')">View</button>`;
             if (canPurchase) buttonsHtml += `<button class="btn btn-primary btn-sm" onclick="openPurchaseModal('${u.id}')">Add Pkg</button>`;
             if (canMod) buttonsHtml += `<button class="btn btn-sm" style="${blockBtnStyle} color:white;" onclick="toggleBlockUser('${u.id}', '${u.status}')">${blockBtnText}</button>`;
-            if (canDelete) buttonsHtml += `<button class="btn btn-sm" style="background:#cc0000; border:none; color:white;" onclick="wipeUser('${u.id}')"><i class="fas fa-trash"></i></button>`;
+            if (canDelete) buttonsHtml += `<button class="btn btn-sm btn-outline-danger" onclick="wipeUser('${u.id}')">Remove</button>`;
 
             const tr = document.createElement('tr');
             if (isBlocked) tr.style.background = '#ffe6e6';
